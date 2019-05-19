@@ -2,6 +2,7 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
+var path =require('path');
 
 var app = express();
 //cargar rutas
@@ -34,7 +35,7 @@ app.use((req, res, next) => {
 
 
 //rutas
-
+app.use('/',express.static('client',{redirect:false}));
 app.use('/api', usuario_routes);
 app.use('/api', rol_routes);
 app.use('/api', aseguradora_routes);
@@ -43,7 +44,9 @@ app.use('/api', negocio_routes);
 app.use('/api', cotizacion_routes);
 app.use('/api', contacto_routes);
 app.use('/api', fastCotizacion_routes);
-
+app.get('*', function(req,res,next){
+    res.sendFile(path.resolve('client/index.html'));
+});
 
 
 module.exports = app;

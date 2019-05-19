@@ -1,0 +1,375 @@
+<logo></logo>
+<div class="contenedorForm">
+    <h2>{{titulo}}</h2>
+
+    <div class="message success" *ngIf="status == 'success'">
+        El comunicado se ha creado correctamente, puedes <a [routerLink]="['/usuario',save_user._id]">verlo   aqui</a>
+    </div>
+    <div class="message failed" *ngIf="status == 'failed'">
+        No se ha podido guardar la propiedad de conocenos
+    </div>
+
+
+
+
+
+
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+
+        <div id="rol">
+            <p>
+                <label for="role">Rol</label>
+                <select type="text" name="role" #role="ngModel" [(ngModel)]="user.role" autocomplete="role" required>
+					<option *ngFor="let catalog_role of catalog_role" value="{{catalog_role.clv}}">{{catalog_role.description}}</option>
+	       		</select>
+                <br>
+                <span class="form_error" *ngIf="role.touched && !role.valid">
+					El Rol es obligatorio
+				</span>
+            </p>
+            <p>
+                <label for="description_role">Descripcion de rol</label>
+                <select type="text" name="description_role" #description_role="ngModel" [(ngModel)]="user.description_role" autocomplete="description_role" required>
+					<option *ngFor="let catalog_description_role of catalog_description_role" value="{{catalog_description_role.clv}}">{{catalog_description_role.description}}</option>
+	       		</select>
+                <br>
+                <span class="form_error" *ngIf="description_role.touched && !description_role.valid">
+					El Rol es obligatorio
+				</span>
+            </p>
+
+        </div>
+        <div id="personal">
+            <p>
+                <label for="name">Nombre(s)</label>
+                <input type="text" name="name" #name="ngModel" autocomplete="name" [(ngModel)]="user.name" required>
+                <br>
+                <span class="form_error" *ngIf="name.touched && !name.valid">
+					El nombre es obligatorio
+				</span>
+            </p>
+            <p>
+                <label for="f_surname">Apellido Paterno</label>
+                <input type="text" name="f_surname" #f_surname="ngModel" autocomplete="f_surname" [(ngModel)]="user.f_surname" required>
+                <br>
+                <span class="form_error" *ngIf="f_surname.touched && !f_surname.valid">
+					El  Apellido Materno es obligatorio
+				</span>
+            </p>
+            <p>
+                <label for="l_surname">Apellido Materno</label>
+                <input type="text" name="s_surname" #s_surname="ngModel" autocomplete="s_surname" [(ngModel)]="user.s_surname" required>
+                <br>
+                <span class="form_error" *ngIf="s_surname.touched && !s_surname.valid">
+					El Apellido Materno es obligatorio
+				</span>
+            </p>
+            <p>
+                <label for="curp">Curp</label>
+                <input type="text" name="curp" #curp="ngModel" autocomplete="curp" [(ngModel)]="user.curp" required>
+                <br>
+                <span class="form_error" *ngIf="curp.touched && !curp.valid">
+				El Curp es obligatorio
+			</span>
+            </p>
+
+            <p>
+                <label for="civil_status">Estado Civil</label>
+
+                <select type="text" name="civil_status" #civil_status="ngModel" [(ngModel)]="user.civil_status" autocomplete="civil_status" required>
+				<option *ngFor="let catalog_civil of catalog_civil" value="{{catalog_civil.clv}}">{{catalog_civil.description}}</option>
+       		</select>
+                <br>
+                <span class="form_error" *ngIf="civil_status.touched && !civil_status.valid">
+				El NID es obligatorio
+			</span>
+            </p>
+            <p>
+                <label for="nacionality">Nacionalidad</label>
+                <select type="text" name="nacionality" #nacionality="ngModel" [(ngModel)]="user.nacionality" autocomplete="nacionality" required>
+				<option *ngFor="let catalog_nacionality of catalog_nacionality" value="{{catalog_nacionality.clv}}">{{catalog_nacionality.description}}</option>
+      		</select>
+                <br>
+                <span class="form_error" *ngIf="nacionality.touched && !nacionality.valid">
+				La Nacionalidad es obligatoria
+			</span>
+            </p>
+            <p>
+                <label for="birth_state">Estado de nacimiento</label>
+                <input type="text" name="birth_state" #birth_state="ngModel" autocomplete="birth_state" [(ngModel)]="user.birth_state" required>
+                <br>
+                <span class="form_error" *ngIf="birth_state.touched && !birth_state.valid">
+				El estado de nacimiento es obligatorio
+			</span>
+            </p>
+            <p>
+                <label for="gender">Genero</label>
+                <select name="gender" #gender="ngModel" [(ngModel)]="user.gender" autocomplete="gender" required>
+				<option *ngFor="let catalog_gender of catalog_gender" value="{{catalog_gender.clv}}">{{catalog_gender.description}}</option>
+			</select>
+
+                <br>
+                <span class="form_error" *ngIf="gender.touched && !gender.valid">
+				El Genero es obligatorio
+			</span>
+            </p>
+            <p>
+                <label for="birth_date">Fecha de Nacimiento</label>
+                <input type="date" name="birth_date" #birth_date="ngModel" [(ngModel)]="user.birth_date" required>
+                <br>
+                <span class="form_error" *ngIf="birth_date.touched && !birth_date.valid">
+				La fecha de nacimiento es obligatoria
+			</span>
+            </p>
+            <p>
+                <label for="lang_m">Lengua Materna</label>
+                <input type="text" name="lang_m" #lang_m="ngModel" [(ngModel)]="user.lang_m" autocomplete="lang_m" required>
+                <br>
+                <span class="form_error" *ngIf="lang_m.touched && !lang_m.valid">
+				La Lengua materna es obligatoria
+			</span>
+            </p>
+            <p>
+                <label for="study_grade">Grado de estudios</label>
+                <input type="text" name="study_grade" #study_grade="ngModel" [(ngModel)]="user.study_grade" autocomplete="study_grade" required>
+                <br>
+                <span class="form_error" *ngIf="study_grade.touched && !study_grade.valid">
+				El Grado de estudios es obligatorio
+			</span>
+            </p>
+            <p>
+                <label for="parent">Grado de estudios</label>
+                <input type="text" name="parent" #parent="ngModel" [(ngModel)]="user.parent" autocomplete="parent" required>
+                <br>
+                <span class="form_error" *ngIf="parent.touched && !parent.valid">
+				El Parentesco es obligatorio
+			</span>
+            </p>
+
+        </div>
+        <div id="identificacion">
+            <p>
+                <label for="type_doc_id">Documento de identificacion</label>
+
+                <select name="type_doc_id" #type_doc_id="ngModel" [(ngModel)]="user.type_doc_id" autocomplet="type_doc_id" required>
+					<option *ngFor="let catalog_type of catalog_type" value="{{catalog_type.clv}}">{{catalog_type.description}}</option>
+				</select>
+
+                <br>
+                <span class="form_error" *ngIf="type_doc_id.touched && !type_doc_id.valid">
+					El tipo de documento de identificacion es obligatorio
+				</span>
+            </p>
+            <p>
+                <label for="folio_doc">Folio de documento de identificacion</label>
+                <input type="text" name="folio_doc" #folio_doc="ngModel" [(ngModel)]="user.folio_doc" autocomplet="folio_doc" required>
+
+                <br>
+                <span class="form_error" *ngIf="folio_doc.touched && !folio_doc.valid">
+					El folio de documento de identificacion es obligatorio
+				</span>
+            </p>
+            <p>
+                <label for="street">Calle</label>
+                <input type="text" name="street" #street="ngModel" [(ngModel)]="user.street" autocomplete="street" required>
+                <br>
+                <span class="form_error" *ngIf="street.touched && !street.valid">
+					La calle es obligatoria
+				</span>
+            </p>
+            <p>
+                <label for="between_street_1">Entre calle 1</label>
+                <input type="text" name="between_street_1" #between_street_1="ngModel" autocomplete="between_street_1" [(ngModel)]="user.between_street_1" required>
+                <br>
+                <span class="form_error" *ngIf="between_street_1.touched && !between_street_1.valid">
+					La entre calle es obligatoria
+				</span>
+            </p>
+            <p>
+                <label for="between_street_2">Entre calle 2</label>
+                <input type="text" name="between_street_2" #between_street_2="ngModel" autocomplete="between_street_2" [(ngModel)]="user.between_street_2" required>
+                <br>
+                <span class="form_error" *ngIf="between_street_2.touched && !between_street_2.valid">
+					La entre calle es obligatoria
+				</span>
+            </p>
+            <p>
+                <label for="number_home">Numero</label>
+                <input type="text" name="number_home" autocomplete="name" #number_home="ngModel" [(ngModel)]="user.number_home" autocomplete="number_home">
+                <br>
+
+
+            </p>
+            <p>
+                <label for="apple">Manzana</label>
+                <input type="text" name="apple" #apple="ngModel" autocomplete="name" [(ngModel)]="user.apple" autocomplete="apple">
+                <br>
+
+            </p>
+            <p>
+                <label for="lote">Lote</label>
+                <input type="text" name="lote" #lote="ngModel" autocomplete="name" [(ngModel)]="user.lote" autocomplete="lote">
+                <br>
+
+            </p>
+            <p>
+                <label for="number_int">Numero Interior</label>
+                <input type="text" name="number_int" #number_int="ngModel" autocomplete="name" autocomplete="name" [(ngModel)]="user.number_int" autocomplete="number_int">
+                <br>
+
+            </p>
+            <p>
+                <label for="department">Departamento</label>
+                <input type="text" name="department" #department="ngModel" autocomplete="name" [(ngModel)]="user.department" autocomplete="department">
+                <br>
+
+            </p>
+            <p>
+                <label for="other_reference">Otra Referencia</label>
+                <input type="text" name="other_reference" #other_reference="ngModel" autocomplete="other_reference" [(ngModel)]="user.other_reference">
+                <br>
+            </p>
+            <p>
+                <label for="cp">Codigo Postal</label>
+                <input type="number" name="cp" #cp="ngModel" [(ngModel)]="user.cp" autocomplete="cp" required>
+                <br>
+                <span class="form_error" *ngIf="cp.touched && !cp.valid">
+					El Codigo Postal es obligatorio
+				</span>
+            </p>
+            <p>
+                <label for="colony">Colonia</label>
+                <input type="text" name="colony" #colony="ngModel" [(ngModel)]="user.colony" autocomplete="colony" required>
+                <br>
+                <span class="form_error" *ngIf="colony.touched && !colony.valid">
+					La colonia es obligatoria
+				</span>
+            </p>
+            <p>
+                <label for="federal_entity">Entidad Federal</label>
+                <input type="text" name="federal_entity" #federal_entity="ngModel" [(ngModel)]="user.federal_entity" autocomplete="federal_entity" required>
+                <br>
+                <span class="form_error" *ngIf="federal_entity.touched && !federal_entity.valid">
+					La entidad federal es obligatoria
+				</span>
+            </p>
+            <p>
+                <label for="municipality">Municipio</label>
+                <input type="text" name="municipality" #municipality="ngModel" [(ngModel)]="user.municipality" autocomplete="municipality">
+                <br>
+
+            </p>
+            <p>
+                <label for="location">Delegacion</label>
+                <input type="text" name="location" #location="ngModel" [(ngModel)]="user.location" autocomplete="location">
+                <br>
+
+            </p>
+
+        </div>
+        <div id="contacto">
+            <p>
+                <label for="phone">Telefono de casa</label>
+                <input type="text" name="phone" #phone="ngModel" [(ngModel)]="user.phone" autocomplete="phone" required>
+                <br>
+            </p>
+            <p>
+                <label for="cel_phone">Telefono celular</label>
+                <input type="text" name="cel_phone" #cel_phone="ngModel" [(ngModel)]="user.cel_phone" autocomplete="cel_phone" required>
+                <br>
+            </p>
+            <p>
+                <label for="social_network">Redes sociales</label>
+                <input type="text" name="social_network" #social_network="ngModel" [(ngModel)]="user.social_network" placeholder="Ejemplo  [Facebook:Colegio Libertadores de America,Twitter:ColegioLibam]" autocomplete="social_network" required>
+                <br>
+            </p>
+            <p>
+                <label for="email">Correo electronico</label>
+                <input type="email" name="email" #email="ngModel" autocomplete="email" [(ngModel)]="user.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                <br>
+                <span class="form_error" *ngIf="email.touched && !email.valid">
+					El Correo electronico es obligatorio
+				</span>
+            </p>
+            <p>
+                <label for="password">Contraseña</label>
+                <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" autocomplete="password" required>
+                <br>
+                <span class="form_error" *ngIf="password.touched && !password.valid">
+					La contraseña es obligatoria 1 mayucula, 1 minuscula ,1 numero y 1 caracter especial ejemplo -Libam2020
+				</span>
+            </p>
+        </div>
+
+
+        <div id="special_needs">
+            <p>
+                <label for="special_needs">Necesidades especiales</label>
+                <input type="text" name="special_needs" #special_needs="ngModel" [(ngModel)]="user.special_needs" autocomplete="special_needs" required>
+                <br>
+            </p>
+            <p>
+                <label for="observations">Observaciones</label>
+                <input type="text" name="observations" #observations="ngModel" [(ngModel)]="user.observations" autocomplete="observations" required>
+                <br>
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+
+        <p>
+
+            <label for="year_registry">Año de registro</label>
+            <input type="text" name="year_registry" #year_registry="ngModel" [(ngModel)]="user.year_registry" autocomplete="year_registry" required>
+
+
+            <br>
+            <span class="form_error" *ngIf="year_registry.touched && !year_registry.valid">
+				El ciclo es obligatorio es obligatorio
+			</span>
+        </p>
+
+        <p>
+
+            <label for="cicle">Ciclo Escolar</label>
+            <select type="text" name="cicle" #cicle="ngModel" [(ngModel)]="user.cicle" autocomplete="cicle" required>
+				<option *ngFor="let catalog_cicle of catalog_cicle" value="{{catalog_cicle.clv}}">{{catalog_cicle.description}}</option>
+      		</select>
+            <br>
+            <span class="form_error" *ngIf="cicle.touched && !cicle.valid">
+				El ciclo es obligatorio es obligatorio
+			</span>
+        </p>
+        <p>
+            <label for="grade">Grado</label>
+            <select type="text" name="grade" #grade="ngModel" [(ngModel)]="user.grade" autocomplete="grade" required>
+				<option *ngFor="let catalog_grade of catalog_grade" value="{{catalog_grade.clv}}">{{catalog_grade.description}}</option>
+      		</select>
+            <br>
+            <span class="form_error" *ngIf="grade.touched && !grade.valid">
+				El grado es obligatorio es obligatorio
+			</span>
+        </p>
+
+
+
+        <input type="submit" value="Ingresar" [disabled]="!registerForm.form.valid">
+    </form>
+
+
+
+
+</div>
+
+
+</div>
+
+</body>
+
+</html>

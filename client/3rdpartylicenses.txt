@@ -344,10 +344,10 @@ MIT
 @angular/animations
 MIT
 
-@angular/forms
+@angular/platform-browser
 MIT
 
-@angular/platform-browser
+@angular/forms
 MIT
 
 @angular/cdk

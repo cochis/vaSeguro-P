@@ -16,5 +16,5 @@ var AseguradoraSchema = Schema({
     activo: Boolean
 });
     
-
-module.exports = mongoose.model('Aseguradora' ,AseguradoraSchema);
+ 
+module.exports = mongoose.model('Aseguradora' ,AseguradoraSchema); 

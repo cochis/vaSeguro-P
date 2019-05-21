@@ -33,7 +33,7 @@ function sendFast(req, res) {
                     port: 25,
                     auth: {
                         user: 'ing.oarrs@gmail.com',
-                        pass: '.Garcia20.'
+                        pass: '.Yarel20.'
                             // user: 'Colegiolibam@gmail.com',
                             // pass: 'ColegioLibam2000'
                     },

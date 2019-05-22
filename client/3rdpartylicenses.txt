@@ -344,10 +344,10 @@ If the Work includes a "NOTICE" text file as part of its distribution, then any 
 END OF TERMS AND CONDITIONS
 
 
-@angular/forms
+@angular/platform-browser
 MIT
 
-@angular/platform-browser
+@angular/forms
 MIT
 
 @angular/cdk

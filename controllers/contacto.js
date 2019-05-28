@@ -58,9 +58,6 @@ function sendMail(req, res) {
                     auth: {
                         user: 'ing.oarrs@gmail.com',
                         pass: '.Yarel20.'
-                            // user: 'Colegiolibam@gmail.com',
-                            // pass: 'ColegioLibam2000'
-
                     },
                     tls: {
                         rejectUnauthorized: false
@@ -69,7 +66,7 @@ function sendMail(req, res) {
                 let mes = contacto.nombre + '  ' + contacto.correo + ' ' + contacto.telefono + ' ' + contacto.negocio + ' ' + contacto.mensaje + ' ';
                 let HelperOptions = {
                     from: contacto.correo,
-                    to: 'ing.oarrs@gmail.com',
+                    to: 'oramirez@vaseguro.com, ggaribay@vaseguro.mx, vaseguro@vaseguro.mx ',
                     subject: contacto.tema,
                     // text: contacto.comentarios
                     text: mes
@@ -123,8 +120,7 @@ function sendMail(req, res) {
 
 
 function sendFast(req, res) {
-    console.log('entro');
-    console.log(req.body);
+
     var params = req.body;
     var fastCotizacion = new FastCotizacion();
 
@@ -151,7 +147,7 @@ function sendFast(req, res) {
                     port: 25,
                     auth: {
                         user: 'ing.oarrs@gmail.com',
-                        pass: '.Garcia20.'
+                        pass: '.Yarel20.'
                             // user: 'Colegiolibam@gmail.com',
                             // pass: 'ColegioLibam2000'
 
@@ -163,7 +159,7 @@ function sendFast(req, res) {
                 let mes = fastCotizacion.cp + '  ' + fastCotizacion.marca + ' ' + fastCotizacion.modelo + ' ' + fastCotizacion.version + ' ' + fastCotizacion.subversion + ' ';
                 let HelperOptions = {
                     from: 'Cotizacion Rapida',
-                    to: 'ing.oarrs@gmail.com',
+                    to: 'oramirez@vaseguro.com, ggaribay@vaseguro.mx, vaseguro@vaseguro.mx ',
                     subject: 'Cotizacion rapida',
                     // text: contacto.comentarios
                     text: mes
@@ -178,7 +174,7 @@ function sendFast(req, res) {
 
                         res.send(error);
                     } else {
-                        console.log('enciado');
+
                         res.status(200).send({
                             fastCotizacion: fastCotizacionStored,
                             message: 'Mail enviado'

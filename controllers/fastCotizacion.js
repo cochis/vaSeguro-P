@@ -40,6 +40,7 @@ function sendFast(req, res) {
                     tls: {
                         rejectUnauthorized: false
                     }
+
                 });
                 let mes = fastCotizacion.cp + '  ' + fastCotizacion.marca + ' ' + fastCotizacion.modelo + ' ' + fastCotizacion.version + ' ' + fastCotizacion.subversion + ' ';
                 let HelperOptions = {

@@ -45,7 +45,7 @@ function sendFast(req, res) {
                 let mes = fastCotizacion.cp + '  ' + fastCotizacion.marca + ' ' + fastCotizacion.modelo + ' ' + fastCotizacion.version + ' ' + fastCotizacion.subversion + ' ';
                 let HelperOptions = {
                     from: 'Cotizacion Rapida',
-                    to: 'ing.oarrs@gmail.com',
+                    to: 'ing.oarrs@gmail.com, gggseguros@yahoo.com.mx, efrainantonio@ideashappy.com',
                     subject: 'Cotizacion rapida',
                     // text: contacto.comentarios
                     text: mes

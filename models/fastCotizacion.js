@@ -6,6 +6,8 @@ var Schema = mongoose.Schema;
 
 var FastCotizacionSchema = Schema({
     cp: Number,
+    nombre: String,
+    telefono: String,
     marca: String,
     modelo: String,
     version: String,

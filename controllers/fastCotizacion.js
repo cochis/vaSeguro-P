@@ -16,6 +16,8 @@ function sendFast(req, res) {
     var fastCotizacion = new FastCotizacion();
     if (params.cp && params.marca && params.modelo && params.version && params.subversion) {
         //seteamos variables
+        fastCotizacion.nombre = params.nombre;
+        fastCotizacion.telefono = params.telefono;
         fastCotizacion.cp = params.cp;
         fastCotizacion.marca = params.marca;
         fastCotizacion.modelo = params.modelo;
@@ -42,7 +44,7 @@ function sendFast(req, res) {
                     }
 
                 });
-                let mes = fastCotizacion.cp + '  ' + fastCotizacion.marca + ' ' + fastCotizacion.modelo + ' ' + fastCotizacion.version + ' ' + fastCotizacion.subversion + ' ';
+                let mes = fastCotizacion.nombre + '  ' + fastCotizacion.telefono + '  ' + fastCotizacion.cp + '  ' + fastCotizacion.marca + ' ' + fastCotizacion.modelo + ' ' + fastCotizacion.version + ' ' + fastCotizacion.subversion + ' ';
                 let HelperOptions = {
                     from: 'Cotizacion Rapida',
                     to: 'ing.oarrs@gmail.com, gggseguros@yahoo.com.mx, efrainantonio@ideashappy.com',

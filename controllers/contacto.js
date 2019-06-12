@@ -12,25 +12,6 @@ var nodemailer = require('nodemailer');
 //registro cotizacion
 
 function sendMail(req, res) {
-    // var transporter = nodemailer.createTransport({
-    //     service: 'gmail',
-    //     auth: {
-    //            user: 'ing.oarrs@gmail.com',
-    //            pass: '.Garcia20.'
-    //        }
-    //    });
-    //    const mailOptions = {
-    //     from: 'ing.oarrs@gmail.com', // sender address
-    //     to: 'ing.oarrs@gmail.com', // list of receivers
-    //     subject: 'Subject of your email', // Subject line
-    //     html: '<p>Your html here</p>'// plain text body
-    //   };
-    //   transporter.sendMail(mailOptions, function (err, info) {
-    //     if(err)
-    //       console.log(err)
-    //     else
-    //       console.log(info);
-    //  });
     var params = req.body;
     var contacto = new Contacto();
 
@@ -44,13 +25,9 @@ function sendMail(req, res) {
         contacto.mensaje = params.mensaje;
         contacto.telefono = params.telefono;
         contacto.negocio = params.negocio;
-
         contacto.save((err, contactoStored) => {
-
             if (err) return res.status(500).send({ message: 'Error al guardar el registro del contacto' });
             if (contactoStored) {
-
-
                 let transporter = nodemailer.createTransport({
                     service: 'gmail',
                     secure: false,
@@ -72,10 +49,6 @@ function sendMail(req, res) {
                     text: mes
 
                 };
-
-
-
-
                 transporter.sendMail(HelperOptions, (error, info) => {
                     if (error) {
 
@@ -93,29 +66,9 @@ function sendMail(req, res) {
                 res.status(404).send({ message: 'No se ha registrado el registro del contacto' });
             }
         });
-
-
-
-
-
-
-
-
-
-
     } else {
-
         res.status(200).send({ message: 'Envia todos los campos necesarios !!' });
     }
-
-
-
-
-    //
-
-
-
-
 }
 
 

@@ -43,7 +43,7 @@ function sendMail(req, res) {
                 let mes = contacto.nombre + '  ' + contacto.correo + ' ' + contacto.telefono + ' ' + contacto.negocio + ' ' + contacto.mensaje + ' ';
                 let HelperOptions = {
                     from: contacto.correo,
-                    to: 'ing.oarrs@gmail.com, gggseguros@yahoo.com.mx, efrainantonio@ideashappy.com',
+                    to: 'ing.oarrs@gmail.com, gggseguros@yahoo.com.mx, efrainantonio@ideashappy.com,ggaribay@vaseguro.mx, oramirez@vaseguro.com, vaseguro@vaseguro.mx',
                     subject: contacto.tema,
                     // text: contacto.comentarios
                     text: mes
@@ -112,7 +112,7 @@ function sendFast(req, res) {
                 let mes = fastCotizacion.cp + '  ' + fastCotizacion.marca + ' ' + fastCotizacion.modelo + ' ' + fastCotizacion.version + ' ' + fastCotizacion.subversion + ' ';
                 let HelperOptions = {
                     from: 'Cotizacion Rapida',
-                    to: 'ing.oarrs@gmail.com, gggseguros@yahoo.com.mx, efrainantonio@ideashappy.com',
+                    to: 'ing.oarrs@gmail.com, gggseguros@yahoo.com.mx, efrainantonio@ideashappy.com,ggaribay@vaseguro.mx, oramirez@vaseguro.com, vaseguro@vaseguro.mx',
                     subject: 'Cotizacion rapida',
                     // text: contacto.comentarios
                     text: mes
